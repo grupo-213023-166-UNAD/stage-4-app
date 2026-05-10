@@ -65,3 +65,34 @@ class Cliente(Entidad):
 
     def mostrar_info(self):
         return f"Cliente [{self.id_cliente}] {self.nombre} | {self.email} | {self.telefono}"
+    
+    # Clase abstracta de servicio con las clases derivadas a continuación
+class Servicio(Entidad, ABC):
+    def __init__(self, codigo, nombre, precio_hora):
+        if not isinstance(precio_hora, (int, float)) or precio_hora <= 0:
+            raise DatosInvalidosError(f"Precio invalido: '{precio_hora}'.")
+        self.codigo     = codigo
+        self.nombre     = nombre
+        self.precio_hora = precio_hora
+        self.disponible  = True
+
+    def validar(self):
+        return self.precio_hora > 0
+
+    def verificar_disponibilidad(self):
+        if not self.disponible:
+            raise ServicioNoDisponibleError(f"'{self.nombre}' no esta disponible.")
+
+    # Costo base (sin extras)
+    @abstractmethod
+    def calcular_costo(self, horas):
+        pass
+
+    # Costo con opciones: IVA y descuento (sobrecarga simulada con parámetros opcionales)
+    @abstractmethod
+    def calcular_costo_con_opciones(self, horas, iva=False, descuento=0.0):
+        pass
+
+    @abstractmethod
+    def mostrar_info(self):
+        pass
