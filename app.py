@@ -96,3 +96,52 @@ class Servicio(Entidad, ABC):
     @abstractmethod
     def mostrar_info(self):
         pass
+
+    class ReservaSala(Servicio):
+    def calcular_costo(self, horas):
+        if horas <= 0 or horas > 12:
+            raise DatosInvalidosError(f"Horas invalidas para sala: {horas} (máx. 12).")
+        return round(self.precio_hora * horas, 2)
+
+    def calcular_costo_con_opciones(self, horas, iva=False, descuento=0.0):
+        costo = self.calcular_costo(horas) * (1 - descuento)
+        return round(costo * 1.19 if iva else costo, 2)
+
+    def mostrar_info(self):
+        return f"[Sala]    {self.nombre} | ${self.precio_hora:,}/h | {'Disponible' if self.disponible else 'No disponible'}"
+
+
+class AlquilerEquipo(Servicio):
+    def calcular_costo(self, horas):
+        if horas <= 0:
+            raise DatosInvalidosError(f"Horas invalidas para equipo: {horas}.")
+        return round(self.precio_hora * horas, 2)
+
+    def calcular_costo_con_opciones(self, horas, iva=False, descuento=0.0):
+        costo = self.calcular_costo(horas) * (1 - descuento)
+        return round(costo * 1.19 if iva else costo, 2)
+
+    def mostrar_info(self):
+        return f"[Equipo]  {self.nombre} | ${self.precio_hora:,}/h | {'Disponible' if self.disponible else 'No disponible'}"
+
+
+class AsesoriaEspecializada(Servicio):
+    AREAS = ["tecnologia", "legal", "financiera", "marketing"]
+
+    def __init__(self, codigo, nombre, precio_hora, area):
+        super().__init__(codigo, nombre, precio_hora)
+        if area.lower() not in self.AREAS:
+            raise DatosInvalidosError(f"area invalida: '{area}'. Validas: {self.AREAS}")
+        self.area = area.lower()
+
+    def calcular_costo(self, horas):
+        if not (1 <= horas <= 8):
+            raise DatosInvalidosError(f"Horas de Asesoria fuera de rango: {horas} (1-8).")
+        return round(self.precio_hora * horas, 2)
+
+    def calcular_costo_con_opciones(self, horas, iva=False, descuento=0.0):
+        costo = self.calcular_costo(horas) * (1 - descuento)
+        return round(costo * 1.19 if iva else costo, 2)
+
+    def mostrar_info(self):
+        return f"[Asesoria] {self.nombre} ({self.area}) | ${self.precio_hora:,}/h | {'Disponible' if self.disponible else 'No disponible'}"
