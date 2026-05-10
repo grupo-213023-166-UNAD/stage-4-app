@@ -1,0 +1,34 @@
+2026-05-10 07:46:08,850 - INFO - --- NUEVO PROCESO DE GESTION ---
+2026-05-10 07:46:08,851 - INFO - Cliente [C01] Kike Martinez | kike@mail.com | 3001234567
+2026-05-10 07:46:08,851 - ERROR - Email invalido: 'correo_malo'.
+2026-05-10 07:46:08,852 - ERROR - Teléfono invalido: 'abc'.
+2026-05-10 07:46:08,852 - INFO - Cliente [C04] Carlos Ruiz | carlos@empresa.co | 6012345678
+2026-05-10 07:46:08,852 - INFO - [Sala]    Sala de Juntas VIP | $100,000/h | Disponible
+2026-05-10 07:46:08,852 - INFO - [Equipo]  Proyector 4K | $80,000/h | Disponible
+2026-05-10 07:46:08,852 - INFO - [Asesoria] Auditoria Contable (financiera) | $250,000/h | Disponible
+2026-05-10 07:46:08,875 - ERROR - Precio invalido: '-500'.
+2026-05-10 07:46:08,875 - ERROR - area invalida: 'cocina'. Validas: ['tecnologia', 'legal', 'financiera', 'marketing']
+2026-05-10 07:46:08,875 - ERROR - Duracion invalida: -3.
+2026-05-10 07:46:08,876 - INFO - RES-001 confirmada | Costo: $535,500.00
+2026-05-10 07:46:08,876 - ERROR - RES-002 fallida: 'Sala de Juntas VIP' no esta disponible.
+2026-05-10 07:46:08,877 - ERROR - Encadenada \u2192 No se pudo confirmar RES-002.
+2026-05-10 07:46:08,877 - INFO - RES-003 confirmada | Costo: $320,000.00
+2026-05-10 07:46:08,877 - WARNING - RES-003 cancelada por el cliente.
+2026-05-10 07:46:08,878 - ERROR - RES-003 ya esta en estado 'Cancelada'.
+2026-05-10 07:48:23,313 - INFO - --- NUEVO PROCESO DE GESTION ---
+2026-05-10 07:48:23,314 - INFO - Cliente [C01] Kike Martinez | kike@mail.com | 3001234567
+2026-05-10 07:48:23,314 - ERROR - Email invalido: 'torresGmail'.
+2026-05-10 07:48:23,315 - ERROR - Teléfono invalido: 'abc'.
+2026-05-10 07:48:23,315 - INFO - Cliente [C04] Carlos Ruiz | carlos@empresa.co | 6012345678
+2026-05-10 07:48:23,316 - INFO - [Sala]    Sala de Juntas VIP | $100,000/h | Disponible
+2026-05-10 07:48:23,316 - INFO - [Equipo]  Proyector 4K | $80,000/h | Disponible
+2026-05-10 07:48:23,316 - INFO - [Asesoria] Auditoria Contable (financiera) | $250,000/h | Disponible
+2026-05-10 07:48:23,316 - ERROR - Precio invalido: '-500'.
+2026-05-10 07:48:23,317 - ERROR - area invalida: 'cocina'. Validas: ['tecnologia', 'legal', 'financiera', 'marketing']
+2026-05-10 07:48:23,317 - ERROR - Duracion invalida: -3.
+2026-05-10 07:48:23,317 - INFO - RES-001 confirmada | Costo: $535,500.00
+2026-05-10 07:48:23,318 - ERROR - RES-002 fallida: 'Sala de Juntas VIP' no esta disponible.
+2026-05-10 07:48:23,318 - ERROR - Encadenada \u2192 No se pudo confirmar RES-002.
+2026-05-10 07:48:23,318 - INFO - RES-003 confirmada | Costo: $320,000.00
+2026-05-10 07:48:23,319 - WARNING - RES-003 cancelada por el cliente.
+2026-05-10 07:48:23,319 - ERROR - RES-003 ya esta en estado 'Cancelada'.
